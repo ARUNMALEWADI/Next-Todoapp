@@ -1,13 +1,17 @@
-import React from "react";
-import TaskList from "./TaskList";
-
-const CompletedPage = ({ completedTasks }) => {
-  return (
-    <div>
-      <h1>Completed Tasks</h1>
-      <TaskList tasks={completedTasks} />
-    </div>
-  );
-};
-
-export default CompletedPage;
+const Task = ({ task, onDelete, onToggle }) => {
+    return (
+      <div>
+        <label>
+          <input
+            type="checkbox"
+            checked={task.completed}
+            onChange={() => onToggle(task.id)}
+          />
+          {task.text}
+        </label>
+        <button onClick={() => onDelete(task.id)}>Delete</button>
+      </div>
+    );
+  };
+  
+  export default Task;
